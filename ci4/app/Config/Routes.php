@@ -1,12 +1,13 @@
-<?php namespace Config;
+<?php
+
+namespace Config;
 
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
 
 // Load the system's routing file first, so that the app and ENVIRONMENT
 // can override as needed.
-if (file_exists(SYSTEMPATH . 'Config/Routes.php'))
-{
+if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
 	require SYSTEMPATH . 'Config/Routes.php';
 }
 
@@ -16,8 +17,8 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php'))
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Home');
-$routes->setDefaultMethod('Login');
+$routes->setDefaultController('Login');
+$routes->setDefaultMethod('Index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 $routes->setAutoRoute(true);
@@ -33,11 +34,11 @@ $routes->setAutoRoute(true);
 //$routes->get('/', 'Login::index');
 // $routes->get('jonny/(:any)', 'admin\kategori::selectWhere/$1');
 
-$routes->group('admin', function($routes){
-	$routes->add('kategori', 'Admin\Kategori::select');
-	$routes->add('kategori/form', 'Admin\Kategori::formInsert');
-	$routes->add('kategori/update/(:any)', 'Admin\Kategori::formUpdate/$1');
-
+$routes->group('admin', function ($routes) {
+	$routes->add('/', 'Admin\adminpage::index');
+	$routes->add('kategori', 'Admin\kategori::read');
+	$routes->add('kategori/create', 'Admin\kategori::create');
+	$routes->add('kategori/find/(:any)', 'Admin\kategori::find/$1');
 });
 
 
@@ -54,7 +55,6 @@ $routes->group('admin', function($routes){
  * You will have access to the $routes object within that file without
  * needing to reload it.
  */
-if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php'))
-{
+if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
 	require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
