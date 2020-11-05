@@ -22,4 +22,3 @@ class Kategori_M extends Model
         ]
     ];
 }
-?>
