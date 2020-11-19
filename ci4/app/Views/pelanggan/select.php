@@ -49,7 +49,8 @@ if (isset($_GET['page_page'])) {
                     }
 
                     ?>
-                    <td><a href="<?= base_url() ?>/admin/pelanggan/update/<?= $value['idpelanggan'] ?>/<?= $value['aktif'] ?>"><?= $aktif ?></a>
+                    <td>
+                        <a href="<?= base_url() ?>/admin/pelanggan/update/<?= $value['idpelanggan'] ?>/<?= $value['aktif'] ?>"><?= $aktif ?></a>
                     </td>
                 </tr>
             <?php endforeach; ?>
