@@ -40,7 +40,7 @@
                         </ul>
                         <ul class="ml-auto mr-4">
                             <li class="nav-item  mt-2 mr-auto d-flex justify-content-end">
-                                <a href="<?= base_url('admin/keranjang') ?>"><img class="" width="25px" src="<?= base_url('/icon/cart.svg') ?>"></a>
+                                <a href="<?= base_url('admin/keranjang/isi') ?>"><img class="" width="25px" src="<?= base_url('/icon/cart.svg') ?>"></a>
                         </ul>
                         </li>
 

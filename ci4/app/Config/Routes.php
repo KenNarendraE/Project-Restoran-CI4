@@ -33,9 +33,16 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/login', 'Admin\Login::index');
 $routes->get('/loginp', 'Admin\Loginp::index');
+
+
 // $routes->get('jonny/(:any)', 'admin\kategori::selectWhere/$1');
 
-$routes->add('/plg', 'Admin\landingpage::index');
+$routes->get('/plg', 'Admin\landingpage::index');
+
+$routes->get('keranjang/tambah/(:any)', 'Admin\keranjang::tambah/$1');
+$routes->get('keranjang/kurang/(:any)', 'Admin\keranjang::kurang/$1');
+$routes->get('/keranjang/delete/(:any)', 'Admin\keranjang::delete/$1');
+// $routes->get('checkout/index', 'Admin\Checkout::index');
 
 $routes->group('admin', ['filter' => 'Auth'], function ($routes) {
 	$routes->add('/', 'Admin\adminpage::index');
